@@ -10,10 +10,10 @@ terraform {
 
 provider "aci" {
   # Cisco ACI user name
-  username = "orchestrator"
+  username = "terraform"
   private_key = "../pki/labadmin.key"
   cert_name = "labadmin.crt"
-  url      = "https://apic-ams.cisco.com"
+  url      = "https://apic1-mdr1.cisco.com"
   insecure = true
 }
 
