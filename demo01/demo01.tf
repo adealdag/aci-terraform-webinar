@@ -13,7 +13,7 @@ provider "aci" {
   username    = "terraform"
   private_key = "../pki/labadmin.key"
   cert_name   = "labadmin.crt"
-  url         = "https://apic1-mdr1.cisco.com"
+  url         = "https://apic1-mlg1.cisco.com"
   insecure    = true
 }
 
