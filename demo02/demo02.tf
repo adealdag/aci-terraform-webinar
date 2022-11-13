@@ -36,9 +36,3 @@ resource "aci_bridge_domain" "bd_192_168_1_0" {
   unk_mcast_act      = "flood"
   relation_fv_rs_ctx = aci_vrf.main.id
 }
-
-resource "aci_subnet" "net_192_168_1_0" {
-  parent_dn = "uni/tn-${var.tenant_name}/bd-${var.bd_name}"
-  ip        = var.bd_subnet
-  scope     = ["private"]
-}
