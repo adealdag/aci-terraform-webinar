@@ -23,18 +23,18 @@ resource "aci_tenant" "demo" {
 }
 
 resource "aci_vrf" "main" {
-  tenant_dn = "uni/tn-${var.tenant_name}"
+  tenant_dn = aci_tenant.demo.id
   name      = var.vrf_name
 }
 
 resource "aci_bridge_domain" "bd_192_168_1_0" {
-  tenant_dn          = "uni/tn-${var.tenant_name}"
+  tenant_dn          = aci_tenant.demo.id
   name               = var.bd_name
   arp_flood          = var.bd_arp_flood
   unicast_route      = var.bd_unicast_routing
   unk_mac_ucast_act  = var.bd_unk_ucast
   unk_mcast_act      = "flood"
-  relation_fv_rs_ctx = "uni/tn-${var.tenant_name}/ctx-${var.vrf_name}"
+  relation_fv_rs_ctx = aci_vrf.main.id
 }
 
 resource "aci_subnet" "net_192_168_1_0" {
