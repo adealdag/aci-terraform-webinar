@@ -2,22 +2,22 @@
 # --
 
 variable "tenant_name" {
-  default = "demo_tn"
+  type = string
 }
 
 variable "vrf_name" {
-  default = "main_vrf"
+  type = string
 }
 
 variable "bd_name" {
-  default = "net01_bd"
+  type = string
 }
 
 variable "bd_arp_flood" {
   description = "Specify whether ARP flooding is enabled. If flooding is disabled, unicast routing will be performed on the target IP address."
-  default = "yes"
+  default     = "yes"
   validation {
-    condition = (var.bd_arp_flood == "yes") || (var.bd_arp_flood == "no")
+    condition     = (var.bd_arp_flood == "yes") || (var.bd_arp_flood == "no")
     error_message = "Allowed values are \"yes\" and \"no\"."
   }
 }
