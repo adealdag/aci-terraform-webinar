@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aci = {
       source  = "ciscodevnet/aci"
-      version = "0.7.0"
+      version = "2.0.0"
     }
   }
   required_version = ">= 0.13"
@@ -45,4 +45,4 @@ resource "aci_subnet" "net" {
   parent_dn = aci_bridge_domain.bd[each.key].id
   ip        = each.value.gateway
   scope     = each.value.scope
-} 
+}
